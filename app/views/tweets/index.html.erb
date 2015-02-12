@@ -1,0 +1,7 @@
+
+<ol>
+	<% @tweets.reverse %>
+	<% @tweets.each do |tweet| %>
+	<li><%= tweet.content %></li>
+	<% end %>
+</ol>

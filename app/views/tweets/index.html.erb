@@ -1,7 +1,11 @@
 
-<ol>
-	<% @tweets.reverse %>
-	<% @tweets.each do |tweet| %>
-	<li><%= tweet.content %></li>
+<p><%= link_to "Tweetする", new_tweet_path %></p>
+
+<ul style="list-style:none;">
+	<% @tweets.reverse.each do |tweet| %>
+	<li>
+		<%= tweet.content %>
+		<%= link_to (image_tag "dustbox.png"), tweet_path(tweet.id), method: :delete, data: { confirm: "OK?" } %>
+	</li>
 	<% end %>
-</ol>
+</ul>

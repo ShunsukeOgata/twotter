@@ -5,7 +5,7 @@
 	<% @tweets.reverse.each do |tweet| %>
 	<li>
 		<%= tweet.content %><br>
-		<%= tweet.created_at.in_time_zone("Asia/Tokyo") %>
+		<%= tweet.created_at.in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d %H:%M:%S") %>
 		<%= link_to (image_tag "dustbox.png"), tweet_path(tweet.id), method: :delete, data: { confirm: "OK?" } %>
 	</li>
 	<% end %>

@@ -1,5 +1,13 @@
+<br>
 
-<p><%= link_to "Tweetする", new_tweet_path %></p>
+<p><%= render 'form' %></p>
+
+<br>
+
+<p>
+	tweet数:
+	<%= @tweets.count%>
+</p>
 
 <ul style="list-style:none;">
 	<% @tweets.reverse.each do |tweet| %>

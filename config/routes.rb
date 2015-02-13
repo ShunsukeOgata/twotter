@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :tweets
+  resources :tweets, except: [:new]
   root 'tweets#index'
   
   

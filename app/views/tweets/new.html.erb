@@ -1,17 +1,3 @@
-<h2>tweetの内容</h2>
+<h2>入力エラー</h2>
 
-<%= form_for @tweet do |f| %>
-
-<p>
-	<%= f.label :content %><br>
-	<%= f.text_field :content %>
-	<% if @tweet.errors.any? %>
-	<%= @tweet.errors.messages[:content][0] %>
-	<% end %>
-</p>
-
-<p>
-	<%= f.submit %>
-</p>
-
-<% end %>
+<p><%= render 'form' %></p>

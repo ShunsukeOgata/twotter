@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217081517) do
+ActiveRecord::Schema.define(version: 20150217083131) do
 
   create_table "tweets", force: :cascade do |t|
     t.string   "content"
@@ -32,9 +32,14 @@ ActiveRecord::Schema.define(version: 20150217081517) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "account"
+    t.string   "icon"
   end
 
+  add_index "users", ["account"], name: "index_users_on_account", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

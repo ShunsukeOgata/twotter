@@ -1,6 +1,9 @@
 class TweetsController < ApplicationController
   
   def index
+    unless signed_in?
+      redirect_to new_user_registration_path
+    end
     @tweets = Tweet.all
     @tweet = Tweet.new
   end

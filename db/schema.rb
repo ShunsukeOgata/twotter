@@ -32,14 +32,12 @@ ActiveRecord::Schema.define(version: 20150217083131) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "account"
-    t.string   "icon"
+    t.string   "name",                   default: "", null: false
+    t.string   "account",                default: "", null: false
+    t.string   "icon",                   default: "", null: false
   end
 
-  add_index "users", ["account"], name: "index_users_on_account", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["name"], name: "index_users_on_name", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

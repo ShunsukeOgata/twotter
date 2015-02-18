@@ -9,12 +9,16 @@
 	<%= @tweets.count%>
 </p>
 
-<ul style="list-style:none;">
-	<% @tweets.reverse.each do |tweet| %>
-	<li>
-		<%= tweet.content %><br>
-		<%= tweet.created_at.in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d %H:%M:%S") %>
-		<%= link_to (image_tag "dustbox.png"), tweet_path(tweet.id), method: :delete, data: { confirm: "OK?" } %>
-	</li>
-	<% end %>
-</ul>
+
+<% @tweets.reverse_order.each do |tweet| %>
+    <tr>
+      <td class="icon"><%= image_tag tweet.user.icon, width: 40, height: 40 %></td>
+      <td class="name"><%= tweet.user.name %></td> <br />
+      <td class="content">「<%= tweet.content %>」</td><br />
+      <td class="created_at"><%= tweet.created_at.in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d %H:%M:%S") %></td>
+      <% if signed_in? && current_user == tweet.user %>
+          <td class="destroy"><%= link_to (image_tag "dustbox.png"), tweet, method: :delete, data: { confirm: 'ok?' } %></td>
+          <br /><br />
+      <% end %>
+    </tr>
+<% end %>

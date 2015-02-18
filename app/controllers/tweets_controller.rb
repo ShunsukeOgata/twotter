@@ -6,6 +6,7 @@ class TweetsController < ApplicationController
     end
     @tweets = Tweet.all
     @tweet = Tweet.new
+    @user = User.where(id: current_user.id).last
   end
   
   def new

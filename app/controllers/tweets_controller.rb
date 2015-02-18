@@ -1,12 +1,14 @@
 class TweetsController < ApplicationController
   
   def index
-    unless signed_in?
+    if signed_in?
+      @tweets = Tweet.all
+      @tweet = Tweet.new
+      @user = User.where(id: current_user.id).last
+    else
       redirect_to new_user_registration_path
     end
-    @tweets = Tweet.all
-    @tweet = Tweet.new
-    @user = User.where(id: current_user.id).last
+
   end
   
   def new

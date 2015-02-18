@@ -1,4 +1,3 @@
-
 <% if current_user.present? %>
     <% if current_user.icon.present? %>
         <%= image_tag current_user.icon, width: 30, height: 30 %>
@@ -6,11 +5,11 @@
         <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40 %>
     <% end %>
     <%= current_user.name + "@" + current_user.account %>でログイン中
-<%end%>
+<% end %>
 
-
-
-<p><%= render 'form' %></p>
+<% if signed_in? %>
+    <p><%= render 'form' %></p>
+<% end %>
 <br/>
 
 <% @tweets.reverse_order.each do |tweet| %>

@@ -29,7 +29,7 @@
       <br/>
       <td class="created_at"><%= tweet.created_at.in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d %H:%M:%S") %></td>
       <% if signed_in? && current_user == tweet.user %>
-          <td class="destroy"><%= link_to (image_tag "dustbox.png"), tweet, method: :delete, data: {confirm: 'ok?'} %></td>
+          <td class="destroy"><%= link_to (image_tag "dustbox.png", width: 20, height: 20), tweet, method: :delete, data: {confirm: 'ツイートを削除します。'} %></td>
       <% end %>
       <br/><br/>
     </tr>

@@ -7,7 +7,7 @@
     <div>メールアドレス　：<%= f.email_field :email%></div>
     <div>パスワード　　　：<%= f.password_field :password, autocomplete: "off" %>(8字以上必須)</div>
     <div>パスワード確認　：<%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-    <div>アイコン（任意）：<%= f.text_field :icon %></div>(画像のURL)
+    <div>アイコン（任意）：<%= f.text_field :icon %>(画像のURL)</div>
 
     <div class="actions">
       <%= f.submit "登録" %>

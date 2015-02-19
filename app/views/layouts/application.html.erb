@@ -4,6 +4,9 @@
   <title>Twotter</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "bootstrap", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -11,7 +14,7 @@
 <header>
   <nav>
     <%= link_to (image_tag "home.png", width: 30, height: 30), tweets_path %>
-
+    <%= image_tag("logo.png", :id => "headerlogo") %>
     <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
     <% if user_signed_in? %>
         <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
@@ -23,8 +26,9 @@
         <%= link_to "アカウント作成", new_user_registration_path %> |
         <%= link_to "ログイン", new_user_session_path %>
     <% end %>
-    <%= image_tag "logo.png", width: 30, height: 30 %>
-    <%= image_tag "tweet.png", width: 30, height: 30 %>
+
+    <%= image_tag("tweet.png", :id => "tweeticon") %>
+
   </nav>
 </header>
 

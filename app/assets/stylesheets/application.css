@@ -1,12 +1,7 @@
 
-body {
-    background-image: url('/assets/background.png');
-    background-repeat: repeat-x;
-    background-attachment: fixed;
-    background-position-y: 40px ;
-    -moz-background-size:cover;
-    background-size:cover;
-}
+*= require_self
+*= require_tree .
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

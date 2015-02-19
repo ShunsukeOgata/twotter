@@ -5,7 +5,7 @@
   <% end %>
 
   <br>
-    <p>いまどうしてる？</p>
-    <%= f.text_area :content %>
-    <p><%= f.submit 'ツイート' %></p>
+    <p id = "howru">いまどうしてる？</p>
+   <%= f.text_area :content , :id => "textarea" %>
+    <p><%= f.submit 'ツイート', :id => "tweetbutton" %></p>
 <% end %>

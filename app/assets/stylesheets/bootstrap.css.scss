@@ -1,0 +1,40 @@
+@import "twitter/bootstrap";
+
+
+#headerlogo {
+//  position: absolute;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+#tweeticon{
+  position: absolute;
+  left: 95%;
+  width: 30px;
+  height: 30px;
+}
+
+#textarea {
+  left: 50%;
+  width: 100%;
+  height: 80px;
+}
+
+#tweetbutton {
+  position : absolute;
+  left: 82%;
+}
+
+#howru {
+  position: relative;
+  left: 38%;
+}
+
+body {
+  background-image: url('/assets/background.png');
+  background-repeat: repeat-x;
+  background-position-y: 40px ;
+  -moz-background-size:cover;
+  background-size:cover;
+}

@@ -1,36 +1,47 @@
-<% if current_user.present? %>
-    <% if current_user.icon.present? %>
-        <%= image_tag current_user.icon, width: 30, height: 30 %>
-    <% else %>
-        <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40 %>
-    <% end %>
-    <%= current_user.name + "@" + current_user.account %>でログイン中<br/>
-    tweet : <%= @user.tweets.count %>
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-3 column">
+      <% if current_user.present? %>
+          <% if current_user.icon.present? %>
+              <%= image_tag current_user.icon, width: 50, height: 50 %>
+          <% else %>
+              <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 50, height: 50 %>
+          <% end %>
+          <%= current_user.name + "@" + current_user.account %><br/>
+          tweet : <%= @user.tweets.count %>
 
-<% end %>
-
-<% if signed_in? %>
-    <p><%= render 'form' %></p>
-<% end %>
-<br/>
-
-<% @tweets.reverse_order.each do |tweet| %>
-    <tr>
-      <% if tweet.user.icon.present? %>
-          <td class="icon"><%= image_tag tweet.user.icon, width: 40, height: 40 %></td>
-      <% else %>
-          <td class="icon"><%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40 %></td>
       <% end %>
+    </div>
+    <div class="col-md-6 column">
 
-      <td class="name"><%= tweet.user.name %></td>
-      <td class="account">@<%= tweet.user.account %></td>
-      <br/>
-      <td class="content"><%= tweet.content %></td>
-      <br/>
-      <td class="created_at"><%= tweet.created_at.in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d %H:%M:%S") %></td>
-      <% if signed_in? && current_user == tweet.user %>
-          <td class="destroy"><%= link_to (image_tag "dustbox.png", width: 20, height: 20), tweet, method: :delete, data: {confirm: 'ツイートを削除します。'} %></td>
+      <% if signed_in? %>
+          <p><%= render 'form' %></p>
       <% end %>
-      <br/><br/>
-    </tr>
-<% end %>
+      <br/>
+
+      <% @tweets.reverse_order.each do |tweet| %>
+          <tr>
+            <% if tweet.user.icon.present? %>
+                <td class="icon"><%= image_tag tweet.user.icon, width: 40, height: 40 %></td>
+            <% else %>
+                <td class="icon"><%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40 %></td>
+            <% end %>
+
+            <td class="name"><%= tweet.user.name %></td>
+            <td class="account">@<%= tweet.user.account %></td>
+            <br/>
+            <td class="content"><%= tweet.content %></td>
+            <br/>
+            <td class="created_at"><%= tweet.created_at.in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d %H:%M:%S") %></td>
+            <% if signed_in? && current_user == tweet.user %>
+                <td class="destroy"><%= link_to (image_tag "dustbox.png", width: 20, height: 20), tweet, method: :delete, data: {confirm: 'ツイートを削除します。'} %></td>
+            <% end %>
+            <br/><br/>
+          </tr>
+      <% end %>
+    </div>
+    <div class="col-md-3 column">
+      <h4>他のユーザー</h4>
+    </div>
+  </div>
+</div>

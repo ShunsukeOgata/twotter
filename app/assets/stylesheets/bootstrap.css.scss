@@ -1,8 +1,23 @@
 @import "twitter/bootstrap";
 
+header {
+  position: relative;
+}
+
+#headernavi {
+  position: absolute;
+  right: 5%;
+}
+
+#homeicon {
+  position: absolute;
+  left: 2%;
+  width: 30px;
+  height: 30px;
+}
 
 #headerlogo {
-//  position: absolute;
+  position: absolute;
   left: 50%;
   width: 30px;
   height: 30px;
@@ -10,7 +25,7 @@
 
 #tweeticon{
   position: absolute;
-  left: 95%;
+  right: 2%;
   width: 30px;
   height: 30px;
 }

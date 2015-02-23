@@ -3,9 +3,9 @@
     <div class="col-md-3 column">
       <% if current_user.present? %>
           <% if current_user.icon.present? %>
-              <%= image_tag current_user.icon, width: 50, height: 50 %>
+              <%= image_tag current_user.icon, width: 50, height: 50, :class => "img-rounded" %>
           <% else %>
-              <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 50, height: 50 %>
+              <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 50, height: 50, :class => "img-rounded" %>
           <% end %>
           <%= current_user.name + "@" + current_user.account %><br/>
           tweet : <%= @user.tweets.count %>
@@ -22,9 +22,9 @@
       <% @tweets.reverse_order.each do |tweet| %>
           <tr>
             <% if tweet.user.icon.present? %>
-                <td class="icon"><%= image_tag tweet.user.icon, width: 40, height: 40 %></td>
+                <td class="icon"><%= image_tag tweet.user.icon, width: 40, height: 40, :class => "img-rounded" %></td>
             <% else %>
-                <td class="icon"><%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40 %></td>
+                <td class="icon"><%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40 , :class => "img-rounded"%></td>
             <% end %>
 
             <td class="name"><%= tweet.user.name %></td>

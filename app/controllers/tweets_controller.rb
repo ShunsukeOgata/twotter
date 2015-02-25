@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
     if signed_in?
       @tweets = Tweet.all
       @tweet = Tweet.new
-      @user = User.where(id: current_user.id).last
+      @user = current_user#User.where(id: current_user.id).last
     else
       redirect_to new_user_registration_path
     end
@@ -27,7 +27,9 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     @tweet.destroy
-    redirect_to tweets_path
+    @tweets = Tweet.all
+    @user = current_user
+    render 'index'
   end
 
   private

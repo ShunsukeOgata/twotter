@@ -12,7 +12,7 @@
       <br/>
       <%= tweet.created_at.in_time_zone("Asia/Tokyo").strftime("%Y/%m/%d %H:%M:%S") %>
       <% if signed_in? && current_user == tweet.user %>
-          <%= link_to (image_tag "dustbox.png", width: 20, height: 20), tweet, method: :delete, data: {confirm: 'ツイートを削除します。'} %>
+          <%= link_to (image_tag "dustbox.png", width: 20, height: 20), tweet, method: :delete, data: {confirm: 'ツイートを削除します。'}, remote: true %>
       <% end %>
       <br/><br/>
 <% end %>

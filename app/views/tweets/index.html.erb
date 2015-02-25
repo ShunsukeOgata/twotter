@@ -13,6 +13,7 @@
           <% end %>
 
           <%= current_user.name + "@" + current_user.account %><br/>
+
           <div id="tweetcount">tweet : <%= @user.tweets.count %></div>
 
 
@@ -31,8 +32,9 @@
               <% end %>
 
               <br>
-              <p id = "howru">いまどうしてる？</p>
-              <%= f.text_area :content , :id => "textarea" %>
+
+              <p id="howru">いまどうしてる？</p>
+              <%= f.text_area :content, :id => "textarea" %>
               <p><%= f.submit 'ツイート', :id => "tweetbutton" %></p>
 
           <% end %>
@@ -48,6 +50,20 @@
     </div>
     <div class="col-md-3 column">
       <h4>他のユーザー</h4>
+
+      <% if @others.present? %>
+          <% @others.each do |other| %>
+              <% if other.icon.present? %>
+                  <%= image_tag other.icon, width: 40, height: 40, :class => "img-rounded" %>
+              <% else %>
+                  <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40, :class => "img-rounded" %>
+              <% end %>
+
+              <%= other.name %>
+              @<%= other.account %>
+              <br/><br/>
+          <% end %>
+      <% end %>
     </div>
   </div>
 </div>

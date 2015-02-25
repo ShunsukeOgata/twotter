@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
       @tweets = Tweet.all
       @tweet = Tweet.new
       @user = current_user#User.where(id: current_user.id).last
+      @others = User.where('id != ?', current_user.id) #where('id NOT IN ?' , [配列])とする事で、当てはまらないものを選択
     else
       redirect_to new_user_registration_path
     end

@@ -13,7 +13,8 @@
           <% end %>
 
           <%= current_user.name + "@" + current_user.account %><br/>
-          tweet : <%= @user.tweets.count %>
+          <div id="tweetcount">tweet : <%= @user.tweets.count %></div>
+
 
       <% end %>
     </div>
@@ -22,7 +23,7 @@
     <div class="col-md-6 column">
 
       <% if signed_in? %>
-          <%= form_for(@tweet, :url => {:controller => :tweets, :action => :create}, remote: true) do |f| %>
+          <%= form_for(@tweet, remote: true) do |f| %>
 
               <% if @tweet.errors.any? %>
                   <%= @tweet.errors.messages[:content][0] %>
@@ -39,8 +40,8 @@
 
       <br/>
 
-      <div id="added">
-        <%= render :partial => "add" %>
+      <div id="tweets">
+        <%= render :partial => "tweets" %>
       </div>
 
 

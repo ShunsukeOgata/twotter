@@ -1,3 +1,4 @@
 jQuery(function ($) {
-    $('#added').html("<%= j(render('add')) %>");
+    $('#tweets').html("<%= j(render('tweets')) %>");
+    $('#tweetcount').html("tweet : <%= @user.tweets.count %>");
 });

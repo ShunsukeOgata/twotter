@@ -35,7 +35,8 @@
 
               <p id="howru">いまどうしてる？</p>
               <%= f.text_area :content, :id => "textarea" %>
-              <p><%= f.submit 'ツイート', :id => "tweetbutton" %></p>
+              <span id="lettercount">140</span>
+              <%= f.submit 'ツイート', :id => "tweetbutton" %>
 
           <% end %>
       <% end %>
@@ -67,3 +68,4 @@
     </div>
   </div>
 </div>
+

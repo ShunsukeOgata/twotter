@@ -15,3 +15,26 @@
 //= require twitter/bootstrap
 //= require turbolinks
 // require_tree .
+
+jQuery(function ($) {
+
+    var inputCountMax = 140;
+    $('#textarea').bind('keydown keyup keypress change', function () {
+        var thisValueLength = $(this).val().length;
+        var countDown = (inputCountMax) - (thisValueLength);
+        $('#lettercount').html(countDown);
+
+        if (countDown < 0) {
+            $('#lettercount').css({color: '#ff0000', fontWeight: 'bold'});
+            $('#textarea').css({background: '#ffcccc'});
+        } else {
+            $('#lettercount').css({color: '#000000', fontWeight: 'normal'});
+            $('#textarea').css({background: '#ffffff'});
+        }
+    });
+
+    $(window).load(function () {
+        $('#lettercount').html(countMax);
+    });
+
+});

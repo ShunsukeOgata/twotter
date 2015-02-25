@@ -18,12 +18,10 @@ class TweetsController < ApplicationController
   def create
 	  @tweet = Tweet.new(tweet_params)
     @tweets = Tweet.all
-    @user = User.where(id: current_user.id).last
-	  if @tweet.save
-	    redirect_to tweets_path
-	  else
-	    render 'index'
-    end
+    @user = current_user #User.where(id: current_user.id).last
+	  @tweet.save
+    render 'index'
+
   end
 
   def destroy

@@ -1,13 +1,15 @@
+<dev class = "devise">
+  <dev class="devisemargin">
 <h2>ユーザ登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-    <div>ユーザ名　　　　：<%= f.text_field :name, autofocus: true %></div>
-    <div>アカウント名　　：<%= f.text_field :account%></div>
-    <div>メールアドレス　：<%= f.email_field :email%></div>
-    <div>パスワード　　　：<%= f.password_field :password, autocomplete: "off" %>(8字以上必須)</div>
-    <div>パスワード確認　：<%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-    <div>アイコン（任意）：<%= f.text_field :icon %>(画像のURL)</div>
+    <div>ユーザ名<br/><%= f.text_field :name, autofocus: true %></div>
+    <div>アカウント名<br/><%= f.text_field :account%></div>
+    <div>メールアドレス<br/><%= f.email_field :email%></div>
+    <div>パスワード<br/><%= f.password_field :password, autocomplete: "off" %>(8字以上必須)</div>
+    <div>パスワード確認<br/><%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <div>アイコン（任意）<br/><%= f.text_field :icon %>(画像のURL)</div>
 
     <div class="actions">
       <%= f.submit "登録" %>
@@ -15,4 +17,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
-
+</dev>
+</dev>

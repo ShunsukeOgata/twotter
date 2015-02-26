@@ -1,70 +1,99 @@
 <div class="container">
   <div class="row clearfix">
-    <div class="col-md-3 column">
+    <div class="col-md-4 column" , id="userprofile">
 
       <% if current_user.present? %>
 
           <% if current_user.icon.present? %>
-              <%= image_tag current_user.icon, width: 50, height: 50, :class => "img-rounded" %>
+              <%= image_tag current_user.icon, :class => "profileicon" %>
 
           <% else %>
-              <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 50, height: 50, :class => "img-rounded" %>
+              <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', :class => "profileicon" %>
 
           <% end %>
 
-          <%= current_user.name + "@" + current_user.account %><br/>
+          <p class="profilename"><%= current_user.name %><br/></p>
 
-          <div id="tweetcount">tweet : <%= @user.tweets.count %></div>
+          <p class="profileaccount"><%= "@" + current_user.account %></p>
 
+          <div class="row clearfix">
+            <div class="col-md-4 column">
+
+              <p>ツイート</p>
+
+              <div id="tweetcount"><%= @user.tweets.count %></div>
+
+            </div>
+            <div class="col-md-4 column">
+
+              <p>フォロー</p>
+
+              <p>未実装</p>
+
+            </div>
+            <div class="col-md-4 column">
+
+              <p>フォロワー</p>
+
+              <p>未実装</p>
+
+            </div>
+          </div>
 
       <% end %>
     </div>
 
 
     <div class="col-md-6 column">
+      <div class="tweetcolumn">
 
-      <% if signed_in? %>
-          <%= form_for(@tweet, remote: true) do |f| %>
+        <div id="tweetarea">
+          <% if signed_in? %>
+              <%= form_for(@tweet, remote: true) do |f| %>
 
-              <% if @tweet.errors.any? %>
-                  <%= @tweet.errors.messages[:content][0] %>
+                  <% if @tweet.errors.any? %>
+                      <%= @tweet.errors.messages[:content][0] %>
 
+                  <% end %>
+
+                  <br>
+
+                  <p id="howru">いまどうしてる？</p>
+                  <%= f.text_area :content, :id => "textarea" %>
+                  <span id="lettercount">140</span>
+                  <%= f.submit 'ツイート', :id => "tweetbutton" %>
+                  <br/>
               <% end %>
-
-              <br>
-
-              <p id="howru">いまどうしてる？</p>
-              <%= f.text_area :content, :id => "textarea" %>
-              <span id="lettercount">140</span>
-              <%= f.submit 'ツイート', :id => "tweetbutton" %>
-
           <% end %>
-      <% end %>
+        </div>
 
-      <br/>
 
-      <div id="tweets">
-        <%= render :partial => "tweets" %>
+        <div id="tweets">
+          <%= render :partial => "tweets" %>
+        </div>
       </div>
 
-
     </div>
-    <div class="col-md-3 column">
-      <h4>他のユーザー</h4>
+    <div class="col-md-2 column">
+      <dev id="otherscolumn">
 
-      <% if @others.present? %>
-          <% @others.each do |other| %>
-              <% if other.icon.present? %>
-                  <%= image_tag other.icon, width: 40, height: 40, :class => "img-rounded" %>
-              <% else %>
-                  <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40, :class => "img-rounded" %>
-              <% end %>
+        <h4>他のユーザー</h4>
 
-              <%= other.name %>
-              @<%= other.account %>
-              <br/><br/>
-          <% end %>
-      <% end %>
+        <% if @others.present? %>
+            <% @others.each do |other| %>
+                <% if other.icon.present? %>
+                    <%= image_tag other.icon, width: 40, height: 40, :class => "img-rounded" %>
+                <% else %>
+                    <%= image_tag 'http://ks.c.yimg.jp/res/chie-0/309/267/i1/img.PNG', width: 40, height: 40, :class => "img-rounded" %>
+                <% end %>
+
+                <%= other.name %>
+                @<%= other.account %>
+                <br/><br/>
+            <% end %>
+        <% end %>
+
+      </dev>
     </div>
   </div>
 </div>

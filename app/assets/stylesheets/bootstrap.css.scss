@@ -10,16 +10,18 @@ hr {
 }
 
 .devise {
-  width: 300px;
+  width: 400px;
   background: white;
   border-radius: 5px;
   position: absolute;
   left: 65%;
+  padding-bottom: 30px;
 }
 
 .devisemargin {
   position: relative;
-  left: 10%;
+  left: 5%;
+
 }
 
 .profileicon {
@@ -82,6 +84,7 @@ hr {
 .tweetcolumn {
   background-color: white;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 
 #tweetarea {
@@ -96,6 +99,7 @@ hr {
   height: 80px;
   border-radius: 3px;
   border-color: #e0f8ff;
+  resize: none;
 }
 
 #tweetbutton {
